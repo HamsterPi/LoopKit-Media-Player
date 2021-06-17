@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--overall box-->
+<LinearLayout
+
+    android:orientation="vertical"
+    android:background="#40B0A6"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:weightSum="1">
+
+    <!-- top of screen -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#5b5a5d"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight="0.5">
+
+        <!--bpm box-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="#E1BE6A"
+            android:layout_marginTop="6dp">
+
+            <!--top of bpm box-->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="bottom">
+
+                <!--BPM: (top left of bpm box) -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:id="@+id/textView2"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:text="@string/bpm"
+                    android:typeface="sans"
+                    android:textStyle="bold"
+                    android:textColor="#5b5a5d" />
+
+                <!--BPM display area (top right of bpm box) -->
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:id="@+id/bpmNumber"
+                    android:gravity="center_vertical|center_horizontal"
+                    android:layout_weight="1"
+                    android:typeface="sans"
+                    android:textStyle="bold"
+                    android:textColor="#5b5a5d" />
+            </LinearLayout>
+
+            <!--bottom of bpm box-->
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <!-- - button (bottom left of bpm box) -->
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:text="@string/minus"
+                    android:id="@+id/sub_bpm"
+                    android:layout_weight="1"
+                    android:textSize="30dp"
+                    android:typeface="sans"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:soundEffectsEnabled="false"
+                    />
+
+                <!-- + button (bottom right of bpm box) -->
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="fill_parent"
+                    android:text="@string/plus"
+                    android:id="@+id/inc_bpm"
+                    android:layout_weight="1"
+                    android:textSize="30dp"
+                    android:typeface="sans"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:soundEffectsEnabled="false"
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- drum box (centre middle) -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="#E1BE6A"
+            android:layout_marginTop="6dp">
+
+            <!-- left of drum box (centre middle) -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <!-- KD (kick drum) -->
+                <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:id="@+id/kick"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:typeface="sans"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:onClick="kickGo"
+                    android:textOff="@string/kick"
+                    android:textOn="@string/kick"
+                    android:tag="1"
+                    android:soundEffectsEnabled="false"
+
+                    android:checked="true" />
+
+                <!-- HH (high-hat) -->
+                <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:id="@+id/hh"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:typeface="sans"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:onClick="hhGo"
+                    android:textOff="@string/hhclosed"
+                    android:textOn="@string/hhclosed"
+                    android:tag="2"
+                    android:soundEffectsEnabled="false"
+                    />
+            </LinearLayout>
+
+            <!-- right of drum box (centre middle) -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <!-- SD (snare drum) -->
+                <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:id="@+id/snare"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:typeface="sans"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:onClick="snareGo"
+                    android:textOn="@string/snare"
+                    android:textOff="@string/snare"
+                    android:layout_gravity="center_horizontal"
+                    android:tag="3"
+                    android:soundEffectsEnabled="false"
+
+                    />
+
+                <!-- PRC (percussion) -->
+                <ToggleButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:id="@+id/perc"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:typeface="sans"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    android:onClick="percGo"
+                    android:textOff="@string/percussion"
+                    android:textOn="@string/percussion"
+                    android:layout_gravity="center_horizontal"
+                    android:tag="4"
+                    android:soundEffectsEnabled="false"
+
+                    />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="#E1BE6A"
+            android:layout_marginTop="6dp">
+
+            <ImageButton
+                android:id="@+id/stop"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:onClick="stop"
+                android:soundEffectsEnabled="false"
+                android:src="@drawable/pause_icon"
+                android:text="@string/stop"
+                android:textSize="20dp" />
+
+            <ImageButton
+                android:id="@+id/play"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:onClick="play"
+                android:soundEffectsEnabled="false"
+                android:src="@drawable/play_icon"
+                android:text="@string/play"
+                android:textSize="20dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- bottom of screen -->
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#5b5a5d"
+        android:layout_weight="0.5">
+
+        <!--left drum box-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#E1BE6A"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            >
+
+        <!-- top of drum machine -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="left"
+            android:layout_weight="0.5"
+            android:background="#E1BE6A"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ToggleButton
+                        android:id="@+id/step1"
+                        style="@style/TextAppearance.AppCompat.Button"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:buttonTint="#ffff09bd"
+                        android:soundEffectsEnabled="false"
+                        android:tag="0"
+                        android:textOff=" "
+                        android:textOn=" " />
+
+                    <ToggleButton
+                        android:id="@+id/step2"
+                        style="@style/TextAppearance.AppCompat.Button"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:buttonTint="#ffff09bd"
+                        android:soundEffectsEnabled="false"
+                        android:tag="1"
+                        android:textOff=" "
+                        android:textOn=" "
+
+                        />
+
+                    <ToggleButton
+                        android:id="@+id/step3"
+                        style="@style/TextAppearance.AppCompat.Button"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:buttonTint="#ffff09bd"
+                        android:soundEffectsEnabled="false"
+                        android:tag="2"
+                        android:textOff=" "
+                        android:textOn=" "
+
+                        />
+
+                    <ToggleButton
+                        android:id="@+id/step4"
+                        style="@style/TextAppearance.AppCompat.Button"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:buttonTint="#ffff09bd"
+                        android:soundEffectsEnabled="false"
+                        android:tag="3"
+                        android:textOff=" "
+                        android:textOn=" "
+
+                        />
+
+                    <ToggleButton
+
+                        android:id="@+id/step5"
+                        style="@style/TextAppearance.AppCompat.Button"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:buttonTint="#ffff09bd"
+                        android:soundEffectsEnabled="false"
+                        android:tag="4"
+                        android:textOff=" "
+                        android:textOn=" "
+
+                        />
+
+                    <ToggleButton
+                        android:id="@+id/step6"
+                        style="@style/TextAppearance.AppCompat.Button"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:buttonTint="#ffff09bd"
+                        android:soundEffectsEnabled="false"
+                        android:tag="5"
+                        android:textOff=" "
+                        android:textOn=" "
+
+                        />
+
+                    <ToggleButton
+
+                        android:id="@+id/step7"
+                        style="@style/TextAppearance.AppCompat.Button"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:buttonTint="#ffff09bd"
+                        android:soundEffectsEnabled="false"
+                        android:tag="6"
+                        android:textOff=" "
+                        android:textOn=" "
+
+                        />
+
+                    <ToggleButton
+                        android:id="@+id/step8"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="0dp"
+                        android:buttonTint="#ffff09bd"
+                        android:soundEffectsEnabled="false"
+                        android:tag="7"
+                        android:textOff=" "
+                        android:textOn=" "
+
+                        />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- bottom of drum machine -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="left"
+            android:layout_weight="0.5"
+            android:background="#E1BE6A"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <ToggleButton
+                        android:id="@+id/step9"
+                        style="@style/TextAppearance.AppCompat.Button"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:buttonTint="#ffff09bd"
+                        android:soundEffectsEnabled="false"
+                        android:tag="8"
+                        android:textOff=" "
+                        android:textOn=" "
+
+                        />
+
+                    <ToggleButton
+                        android:id="@+id/step10"
+                        style="@style/TextAppearance.AppCompat.Button"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:buttonTint="#ffff09bd"
+                        android:soundEffectsEnabled="false"
+                        android:tag="9"
+                        android:textOff=" "
+                        android:textOn=" "
+
+                        />
+
+                    <ToggleButton
+                        android:id="@+id/step11"
+                        style="@style/TextAppearance.AppCompat.Button"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:buttonTint="#ffff09bd"
+                        android:soundEffectsEnabled="false"
+                        android:tag="10"
+                        android:textOff=" "
+                        android:textOn=" "
+
+                        />
+
+                    <ToggleButton
+                        android:id="@+id/step12"
+                        style="@style/TextAppearance.AppCompat.Button"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:buttonTint="#ffff09bd"
+                        android:soundEffectsEnabled="false"
+                        android:tag="11"
+                        android:textOff=" "
+                        android:textOn=" "
+
+                        />
+
+                    <ToggleButton
+
+                        android:id="@+id/step13"
+                        style="@style/TextAppearance.AppCompat.Button"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:buttonTint="#ffff09bd"
+                        android:soundEffectsEnabled="false"
+                        android:tag="12"
+                        android:textOff=" "
+                        android:textOn=" "
+
+                        />
+
+                    <ToggleButton
+                        android:id="@+id/step14"
+                        style="@style/TextAppearance.AppCompat.Button"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:buttonTint="#ffff09bd"
+                        android:soundEffectsEnabled="false"
+                        android:tag="13"
+                        android:textOff=" "
+                        android:textOn=" "
+
+                        />
+
+                    <ToggleButton
+
+                        android:id="@+id/step15"
+                        style="@style/TextAppearance.AppCompat.Button"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:buttonTint="#ffff09bd"
+                        android:soundEffectsEnabled="false"
+                        android:tag="14"
+                        android:textOff=" "
+                        android:textOn=" "
+
+                        />
+
+                    <ToggleButton
+                        android:id="@+id/step16"
+                        android:layout_width="40dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="0dp"
+                        android:layout_marginRight="0dp"
+                        android:buttonTint="#ffff09bd"
+                        android:soundEffectsEnabled="false"
+                        android:tag="15"
+                        android:textOff=" "
+                        android:textOn=" "
+
+                        />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+        <!-- record box (right of drum machine) -->
+        <LinearLayout
+
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
+            android:background="#E1BE6A"
+            android:layout_marginBottom="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+
+
+            >
+
+            <!-- left of drum box (centre middle) -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <!-- Record 1 -->
+                <Button
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:id="@+id/record1"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:typeface="sans"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:onClick="record1func"
+                    android:layout_gravity="center_horizontal"
+                    android:tag="3"
+                    android:soundEffectsEnabled="false"
+                    android:text="Rec 1"
+
+                    android:checked="true" />
+
+                <!-- Record 3 -->
+                <Button
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:id="@+id/record3"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:typeface="sans"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:onClick="record3func"
+                    android:layout_gravity="center_horizontal"
+                    android:tag="3"
+                    android:soundEffectsEnabled="false"
+                    android:text="Rec 3"
+
+                    android:checked="true" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <!-- Record 2 (replace snarego with record2 etc) -->
+                <Button
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:id="@+id/record2"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:typeface="sans"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:onClick="record2func"
+                    android:layout_gravity="center_horizontal"
+                    android:tag="3"
+                    android:soundEffectsEnabled="false"
+                    android:text="Rec 2"
+
+                    android:checked="true" />
+
+                <!-- Record 4 -->
+                <Button
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:id="@+id/record4"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:typeface="sans"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:onClick="record4func"
+                    android:layout_gravity="center_horizontal"
+                    android:tag="3"
+                    android:soundEffectsEnabled="false"
+                    android:text="Rec 4"
+
+                    android:checked="true" />
+
+
+            </LinearLayout>
+
+            <!-- right of drum box (centre middle) -->
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+
+                <Button
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:id="@+id/tutorial"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:typeface="sans"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:onClick="guide"
+                    android:layout_gravity="center_horizontal"
+                    android:tag="3"
+                    android:soundEffectsEnabled="false"
+                    android:text="guide"
+
+                    android:checked="true" />
+
+
+                <Button
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:id="@+id/clear"
+                    android:layout_weight="1"
+                    android:textSize="20dp"
+                    android:typeface="sans"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:onClick="clear"
+                    android:layout_gravity="center_horizontal"
+                    android:tag="3"
+                    android:soundEffectsEnabled="false"
+                    android:text="clear"
+
+                    android:checked="true" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

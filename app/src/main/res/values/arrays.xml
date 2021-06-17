@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="id">
+        <item>@id/step1</item>
+        <item>@id/step2</item>
+        <item>@id/step3</item>
+        <item>@id/step4</item>
+        <item>@id/step5</item>
+        <item>@id/step6</item>
+        <item>@id/step7</item>
+        <item>@id/step8</item>
+        <item>@id/step9</item>
+        <item>@id/step10</item>
+        <item>@id/step11</item>
+        <item>@id/step12</item>
+        <item>@id/step13</item>
+        <item>@id/step14</item>
+        <item>@id/step15</item>
+        <item>@id/step16</item>
+    </array>
+
+</resources>

@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">LoopKit</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="bpm">BPM:</string>
+    <string name="kick">Kick</string>
+    <string name="snare">Snare</string>
+    <string name="hhclosed">Hi-Hat</string>
+    <string name="percussion">Clave</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="play">play</string>
+    <string name="stop">stop</string>
+
+    <string name="record1">Record 1</string>
+    <string name="record2">Record 2</string>
+    <string name="record3">Record 3</string>
+    <string name="record4">Record 4</string>
+
+    <string name="tutorial">tutorial</string>
+    <string name="clear">clear</string>
+
+
+
+
+</resources>
